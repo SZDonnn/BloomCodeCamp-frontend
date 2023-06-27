@@ -17,7 +17,6 @@ export const RenderRoutes = () => {
                        return <Route key={i} path={r.path} element={r.element}/>
                   } else return false
              })}
-             
              </Routes>
         )
    }
@@ -44,6 +43,7 @@ export const RenderRoutes = () => {
                                  <MenuItem key={i} r={r}/>
                             )
                        } else return false
+
                   } )}
    
                   { user.isAuthenticated ?

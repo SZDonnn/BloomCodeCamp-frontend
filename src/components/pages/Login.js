@@ -29,10 +29,10 @@ export const Login = () => {
                <h2>Login page</h2>
                <div className="inputs">
                     <div className="input">
-                         <input value={formData.userName} onChange={(e) => setFormData({userName: e.target.value}) } type="text"/>
+                         <input placeholder="Username" value={formData.userName} onChange={(e) => setFormData({userName: e.target.value}) } type="text"/>
                     </div>
                     <div className="input">
-                         <input value={formData.password} onChange={(e) => setFormData({password: e.target.value}) } type="password"/>
+                         <input placeholder="Password" value={formData.password} onChange={(e) => setFormData({password: e.target.value}) } type="password"/>
                     </div>
                     <div className="button">
                          <button onClick={doLogin}>Log in</button>
