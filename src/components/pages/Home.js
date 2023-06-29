@@ -8,7 +8,7 @@ import DummyImg from '../../img/dummy-img.jpg';
 
 
 export const Home = () => {
-     const { user, logout } = AuthData()
+     const { user } = AuthData()
 
      return (
           <div className="page">
@@ -53,7 +53,7 @@ export const Home = () => {
                          <Col className="text-center mt-4">
                               {user.isAuthenticated ? (
                                    <div className="logout-btn">
-                                        <Link style={{ color: '#FFF', textDecoration: 'none' }} to={'/'} onClick={logout}>Log out</Link>
+                                        <Link style={{ color: '#FFF', textDecoration: 'none' }} to={'dashboard'}>Go to Dashboard</Link>
                                    </div>
                               ) : (
                                    <div className="login-btn">

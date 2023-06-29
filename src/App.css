@@ -100,7 +100,6 @@
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  max-width: 300px;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -125,7 +124,7 @@
   border-radius: 5px 5px 0 0;
 }
 
-.page .login-btn {
+.login-btn {
   background-color: #008CBA; /* Green */
   border: none;
   color: white;
@@ -136,8 +135,19 @@
   font-size: 16px;
 }
 
-.page .logout-btn {
+.logout-btn {
   background-color: #f44336; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.normal-button {
+  background-color: #555; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
