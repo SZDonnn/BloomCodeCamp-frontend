@@ -62,7 +62,7 @@
   text-align: center;
 }
 
-.inputs .input input {
+.inputs .input input, .inputs .input select{
   height: 30px;
   width: 300px;
   margin: 5px 0;
@@ -155,4 +155,11 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+.success-message {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
 }

@@ -23,7 +23,7 @@ export const RenderRoutes = () => {
    
    export const RenderMenu = () => {
    
-        const { user, logout } = AuthData()
+        const { user } = AuthData()
    
         const MenuItem = ({r}) => {
              return (
@@ -45,11 +45,7 @@ export const RenderRoutes = () => {
                        } else return false
 
                   } )}
-   
-                  { user.isAuthenticated ?
-                  <div className="menuItem"><Link to={'/'} onClick={logout}>Log out</Link></div>
-                  :
-                  <div className="menuItem"><Link to={'login'}>Log in</Link></div> }
+
              </div>
         )
    }
