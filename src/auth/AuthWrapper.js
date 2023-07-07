@@ -1,14 +1,17 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { RenderMenu, RenderRoutes } from "../components/structure/RenderNavigation";
-import axios from 'axios';
+import {
+  RenderMenu,
+  RenderRoutes,
+} from "../components/structure/RenderNavigation";
+import axios from "axios";
 
-const AuthContext = createContext();
+export const AuthContext = createContext(); // Export AuthContext here
 export const AuthData = () => useContext(AuthContext);
 
 export const AuthWrapper = () => {
   const [user, setUser] = useState({
     name: "",
-    isAuthenticated: false
+    isAuthenticated: false,
   });
 
   useEffect(() => {
@@ -22,29 +25,36 @@ export const AuthWrapper = () => {
 
   const login = async (userName, password) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', {
-        username: userName,
-        password: password
-      });
+      const response = await axios.post(
+        "http://localhost:8080/api/auth/login",
+        {
+          username: userName,
+          password: password,
+        }
+      );
 
       const token = response.data.token;
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      localStorage.setItem('token', token);
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      localStorage.setItem("token", token);
 
-      setUser({ name: userName, isAuthenticated: true });
-      return "success";
+      setUser({
+        name: userName,
+        isAuthenticated: true,
+        authority: response.data.authority,
+      });
+      return response.data; // Return the response data
     } catch (error) {
-      console.error('Login failed.', error);
+      console.error("Login failed.", error);
       throw new Error("Incorrect username or password");
     }
   };
 
   const logout = () => {
     // Clear the token from localStorage
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
 
     // Remove the Authorization header from axios
-    delete axios.defaults.headers.common['Authorization'];
+    delete axios.defaults.headers.common["Authorization"];
 
     // Reset the user state
     setUser({ name: "", isAuthenticated: false });

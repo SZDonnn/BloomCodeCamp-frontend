@@ -125,7 +125,7 @@
 }
 
 .login-btn {
-  background-color: #008CBA; /* Green */
+  background-color: #008CBA;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -136,7 +136,7 @@
 }
 
 .logout-btn {
-  background-color: #f44336; /* Green */
+  background-color: #f44336;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -147,7 +147,18 @@
 }
 
 .normal-button {
-  background-color: #555; /* Green */
+  background-color: #555;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.success-button {
+  background-color: #5892d8;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -162,4 +173,23 @@
   color: white;
   padding: 10px;
   margin-bottom: 10px;
+}
+
+.assignment-card {
+  overflow: hidden;
+}
+
+.assignment-card .card-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.assignment-card .card-title {
+  flex-shrink: 0;
+}
+
+.assignment-card .card-text {
+  flex-grow: 1;
+  overflow-y: auto;
 }
