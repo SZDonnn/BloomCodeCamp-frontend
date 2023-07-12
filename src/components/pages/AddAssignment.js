@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthWrapper";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -14,8 +14,25 @@ export const AddAssignment = () => {
   const [branch, setBranch] = useState("");
   const [githubUrl, setGithubUrl] = useState("");
   const [reviewVideoUrl, setReviewVideoUrl] = useState("");
-  
+  const [assignments, setAssignments] = useState([]);
+
   const isReviewer = userAuthority === "ROLE_REVIEWER";
+
+  useEffect(() => {
+    // Fetch assignments from the server
+    fetchAssignments();
+  }, []);
+
+  const fetchAssignments = () => {
+    fetch("/api/assignments")
+      .then((response) => response.json())
+      .then((data) => {
+        setAssignments(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching assignments", error);
+      });
+  };
 
   const handleBranchChange = (event) => {
     setBranch(event.target.value);
@@ -91,8 +108,11 @@ export const AddAssignment = () => {
                 <div className="input">
                   <select onChange={handleBranchChange}>
                     <option value="#">Select Assignment</option>
-                    <option value="#">Assignment 1</option>
-                    <option value="#">Assignment 2</option>
+                    {assignments.map((assignment) => (
+                      <option key={assignment.id} value={assignment.branch}>
+                        {assignment.number}
+                      </option>
+                    ))}
                   </select>
                 </div>
               )}
